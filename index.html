@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    
+    
+    //css
+    <style> 
+    html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: #bcf442;
+}
+
+.container{
+  display: flex;
+  min-height: 50;
+}
+
+.column{
+  background-color: white;
+  border-radius: 8px;
+  box-sizing: border-box;
+  margin: 16px 16px;
+  padding: 16px;
+  flex: 1;
+}
+
+.block textarea {
+  width: 100%;
+}
+ul{
+  text-align: center;
+  list-style: none;
+}
+
+button{
+  padding: 8px 16px;
+  background: #80f441;
+  color: white;
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+
+button:hover{
+  background: white;
+  color: #80f441;
+}  
+      
+      
+    </stlye>
+  </head>
+  <body>
+    
+    //html 
+    <div class="container">
+  <div class="first column">
+    <h1>Student List</h1>
+    <ul>
+
+    </ul>
+  </div>
+  <div class="second column">
+    <h1>Add Student</h1>
+    <form onsubmit="addStudents(event)">
+      
+      <div class="block">
+        <textarea name="students" id="students" cols="30" rows="10"></textarea>
+      </div>
+      
+      <div class="block">
+        <button type="submit">Add Students</button>
+        
+      </div>
+    </form>
+  </div>
+</div>
+
+    
+   
+    <script> 
+    
+    function addStudents(e) {
+       e.preventDefault();
+  
+       var students = e.target.students.value.split('\n');
+    
+       google.script.run
+       .withSuccessHandler(function(response) {
+         console.log(response);
+      })
+      .addStudents(students);
+      }
+    
+    </script>
+  </body>
+</html>
+
+
